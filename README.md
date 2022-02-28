@@ -114,21 +114,21 @@ And you can mark records deleted with the DELETE HTTP verb:
 ## Notes
 
 In a production use case I would make several improvements, most of which are
-pretty obvious best practice.  I've forgone them here just to make it easier to
+pretty obvious best practices.  I've forgone them here just to make it easier to
 demonstrate the stated requirements of the task.
 
 - Persistent data storage in a database (and eliminate the need to generate IDs
   and have janky lookup loops)
 - Split models/controllers into separate files/directories
-- Require authorization headers and an API key.  I've left it out here just for
-  sake of ease
+- Require authorization headers and an API key
 - More thorough error handling and more detailed error messages
-- Deploy versioning on API URIs to maintain consistency with updates
+- Deploy versioning on API URIs to maintain consistency with updates (eg.
+  /api/v1/beans/ ...)
 - Allow batch record POST creation
 - Allow PATCH requests to update with partial data, if necessary
 - This goes along with the persistent data store, but there's some ambiguity as
-  to whether we should allow duplicate type-region-roast records.  I chose to
-  allow duplicates because it's unclear.  Ideally something like a batch number
+  to whether we should allow duplicate type/region/roast records.  I chose to
+  allow duplicates because it's unclear.  Ideally something like a lot number
   would serve has natural primary ID and would reduce the need for duplicate
   checking
 - Implement an automated testing suite to ensure changes aren't going to break
